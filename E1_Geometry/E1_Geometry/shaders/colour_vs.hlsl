@@ -13,12 +13,14 @@ struct InputType
 {
 	float4 position : POSITION;
 	float4 colour : COLOR;
+    float2 texcoord : TEXCOORD;
 };
 
 struct OutputType
 {
 	float4 position : SV_POSITION;
 	float4 colour : COLOR;
+    float2 texcoord : TEXCOORD;
 };
 
 OutputType main(InputType input)
@@ -34,7 +36,7 @@ OutputType main(InputType input)
 	output.position = mul(output.position, projectionMatrix);
     //output.position = output.position * float4(5.f, 0.1f, 1.f, 1.f);
 
-	output.colour = input.colour;
+	output.texcoord = input.texcoord;
 	
 
 	return output;
